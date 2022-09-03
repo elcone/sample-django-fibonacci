@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  django_fibonacci:
+    image: django-fibonacci
+    container_name: django-fibonacci
+    build: .
+    ports:
+      - "8000:8000"
+    command: gunicorn --bind 0.0.0.0:8000 --workers 4 django_fibonacci.wsgi
